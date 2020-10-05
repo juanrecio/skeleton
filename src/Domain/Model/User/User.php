@@ -19,7 +19,6 @@ class User
     public function getId(): string
     {
         return $this->id;
-        resolve()
     }
 
 
