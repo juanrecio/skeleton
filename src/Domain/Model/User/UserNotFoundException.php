@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Domain\Model\User;
+namespace Domain\Model\User;
 
-class UserNotFoundException
+class UserNotFoundException extends \Exception
 {
 
 }

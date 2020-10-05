@@ -21,6 +21,10 @@ services:
     # Controllers
     #
     App\Controller\:
-        resource : "%app_path%/src/Controller/*"
+        resource: "%app_path%/src/Controller/*"
         tags:
             - {name: controller.service_arguments}
+
+    Domain\QueryHandler\:
+        resource: "%app_path%/src/Domain/QueryHandler/*"
+        tags: ['query_handler']

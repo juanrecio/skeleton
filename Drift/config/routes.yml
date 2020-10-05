@@ -1,4 +1,5 @@
 # Routes
-default:
-  path: /
-  controller: App\Controller\DefaultController
+get_user:
+    path: /users/{id}
+    controller: App\Controller\GetUserController
+    methods: [GET]
