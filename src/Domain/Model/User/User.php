@@ -2,7 +2,6 @@
 
 namespace Domain\Model\User;
 
-use function React\Promise\resolve;
 
 class User
 {
@@ -14,6 +13,7 @@ class User
     public function __construct(string $id,string $name)
     {
         $this->id = $id;
+        $this->name = $name;
     }
 
     public function getId(): string
