@@ -2,31 +2,34 @@
 
 namespace App\Controller;
 
-use Domain\Model\User\User;
+use Domain\Command\DeleteUser;
 use Domain\Model\User\UserNotFoundException;
-use Domain\Query\GetUser;
-use Drift\CommandBus\Bus\QueryBus;
+use Drift\CommandBus\Bus\CommandBus;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
-class GetUserController
+class DeleteUserController
 {
     private $bus;
 
-    public function __construct(QueryBus $bus)
+    public function __construct(CommandBus $bus)
     {
         $this->bus = $bus;
     }
 
+    /**
+     * @param string $id
+     *
+     * @return mixed
+     * @throws \Drift\CommandBus\Exception\InvalidCommandException
+     */
     public function __invoke(string $id)
     {
-        $getUser = new GetUser($id);
+        $deleteUser = new DeleteUser($id);
 
-        return $this->bus->ask($getUser)
+        return $this->bus->execute($deleteUser)
             ->then(
-        function (User $user) {
-                return new JsonResponse([
-                    'id' => $user->getId(),
-                    'name'=>$user->getName()], 200);
+            function () {
+                return new JsonResponse(null, 200);
             }
         )
             ->otherwise(

@@ -2,7 +2,7 @@
 
 namespace Tests\Domain\Model\User;
 
-use App\Domain\Model\User\InMemoryUserRepository;
+use Domain\Model\User\InMemoryUserRepository;
 use Domain\Model\User\UserRepository;
 use React\EventLoop\LoopInterface;
 

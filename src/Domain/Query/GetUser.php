@@ -8,10 +8,9 @@ class GetUser
 
     private $name;
 
-    public function __construct(string $id,string $name)
+    public function __construct(string $id)
     {
         $this->id = $id;
-        $this->name = $name;
     }
 
     public function getId(): string

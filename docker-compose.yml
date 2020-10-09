@@ -8,3 +8,27 @@ services:
       - "8000:8000"
     volumes:
       - .:/var/www/
+    networks:
+      - drift
+    entrypoint: ["sh", "/wait-and-run.sh", "/server-entrypoint.sh"]
+
+  server1:
+    build: .
+    ports:
+      - "8001:8000"
+    volumes:
+      - .:/var/www/
+    networks:
+      - drift
+    entrypoint: ["sh", "/wait-and-run.sh", "/server-entrypoint.sh"]
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: rabbitmq
+    ports:
+      - 15672:15672
+    networks:
+      - drift
+
+networks:
+  drift:

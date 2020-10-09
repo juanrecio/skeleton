@@ -1,10 +1,7 @@
 <?php
 
-namespace App\Domain\Model\User;
+namespace Domain\Model\User;
 
-use Domain\Model\User\User;
-use Domain\Model\User\UserNotFoundException;
-use Domain\Model\User\UserRepository;
 use React\Promise\PromiseInterface;
 use function React\Promise\reject;
 use function React\Promise\resolve;

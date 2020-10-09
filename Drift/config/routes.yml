@@ -3,3 +3,13 @@ get_user:
     path: /users/{id}
     controller: App\Controller\GetUserController
     methods: [GET]
+
+delete_user:
+    path: /users/{id}
+    controller: App\Controller\DeleteUserController
+    methods: [DELETE]
+
+put_user:
+    path: /users/{id}
+    controller: App\Controller\PutUserController
+    methods: [PUT]
